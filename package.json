@@ -5,12 +5,9 @@
   "main": "index.html",
   "scripts": {
     "dev": "php -S localhost:8000",
-    "build": "echo 'No build step required'"
+    "build": "[my-framework] build --output public"
   },
   "keywords": ["snake", "game", "php", "multiplayer", "leaderboard"],
   "author": "Your Name",
   "license": "MIT"
-  "scripts": {
-    "build": "[my-framework] build --output public"
-  }
 }
