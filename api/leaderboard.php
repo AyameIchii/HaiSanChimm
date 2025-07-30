@@ -21,7 +21,6 @@ function readLeaderboard() {
     $data = file_get_contents($dataFile);
     return json_decode($data, true) ?: [];
 }
-
 function writeLeaderboard($data) {
     global $dataFile;
     return file_put_contents($dataFile, json_encode($data, JSON_PRETTY_PRINT));
