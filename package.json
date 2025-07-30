@@ -10,8 +10,6 @@
   "keywords": ["snake", "game", "php", "multiplayer", "leaderboard"],
   "author": "Your Name",
   "license": "MIT"
-}
-{
   "scripts": {
     "build": "[my-framework] build --output public"
   }
