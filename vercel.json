@@ -1,20 +1,18 @@
 {
   "functions": {
-    "api/*.php": {
-      "runtime": "vercel-php@0.6.0"
+    "api/*.js": {
+      "runtime": "nodejs18.x"
     }
   },
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/api/$1.php"
+      "dest": "/api/$1.js"
     },
     {
       "src": "/(.*)",
       "dest": "/index.html"
     }
   ],
-  "cleanUrls": true,
-  "trailingSlash": false,
   "framework": null
 }
