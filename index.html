@@ -13,28 +13,33 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
+            color: #1565c0;
+            margin: 0;
+            padding: 20px;
         }
 
         .container {
             text-align: center;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(21, 101, 192, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            max-width: 95vw;
+            width: auto;
         }
 
         h1 {
-            margin-bottom: 20px;
-            font-size: 2.5em;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 25px;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(21, 101, 192, 0.3);
+            color: #0d47a1;
         }
 
         .game-controls {
@@ -50,52 +55,65 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 10px 15px;
-            border-radius: 10px;
+            background: rgba(21, 101, 192, 0.1);
+            padding: 12px 18px;
+            border-radius: 12px;
+            color: #0d47a1;
+            font-weight: 500;
         }
 
         input, select, button {
-            padding: 8px 12px;
-            border: none;
-            border-radius: 8px;
-            font-size: 14px;
+            padding: 10px 15px;
+            border: 2px solid rgba(21, 101, 192, 0.2);
+            border-radius: 10px;
+            font-size: 15px;
+            transition: all 0.3s ease;
         }
 
         input[type="text"] {
             background: rgba(255, 255, 255, 0.9);
-            color: #333;
+            color: #0d47a1;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #1976d2;
+            box-shadow: 0 0 10px rgba(25, 118, 210, 0.3);
         }
 
         select {
             background: rgba(255, 255, 255, 0.9);
-            color: #333;
+            color: #0d47a1;
+            cursor: pointer;
         }
 
         button {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            background: linear-gradient(45deg, #1976d2, #2196f3);
             color: white;
             cursor: pointer;
-            transition: all 0.3s ease;
             font-weight: bold;
+            border: none;
         }
 
-        button:hover {
+        button:hover:not(:disabled) {
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 6px 20px rgba(25, 118, 210, 0.4);
+            background: linear-gradient(45deg, #1565c0, #1976d2);
         }
 
         button:disabled {
-            background: #666;
+            background: #bdbdbd;
             cursor: not-allowed;
             transform: none;
+            color: #757575;
         }
 
         #gameCanvas {
-            border: 3px solid white;
-            border-radius: 10px;
-            margin: 20px 0;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            border: 4px solid #1976d2;
+            border-radius: 15px;
+            margin: 25px 0;
+            box-shadow: 0 8px 25px rgba(25, 118, 210, 0.3);
+            background: #f8f9fa;
         }
 
         .game-info {
@@ -107,23 +125,31 @@
         }
 
         .score-info, .controls-info {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 15px;
-            border-radius: 10px;
+            background: rgba(25, 118, 210, 0.1);
+            padding: 20px;
+            border-radius: 15px;
             flex: 1;
-            min-width: 200px;
+            min-width: 250px;
+            color: #0d47a1;
+        }
+
+        .score-info h3, .controls-info h3 {
+            color: #1565c0;
+            margin-bottom: 15px;
+            font-size: 1.3em;
         }
 
         .leaderboard {
-            margin-top: 30px;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 15px;
+            margin-top: 35px;
+            background: rgba(25, 118, 210, 0.1);
+            padding: 25px;
+            border-radius: 20px;
         }
 
         .leaderboard h3 {
-            margin-bottom: 15px;
-            color: #ffd700;
+            margin-bottom: 20px;
+            color: #1565c0;
+            font-size: 1.4em;
         }
 
         .leaderboard-list {
@@ -134,8 +160,9 @@
         .leaderboard-item {
             display: flex;
             justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(25, 118, 210, 0.2);
+            color: #0d47a1;
         }
 
         .leaderboard-item:last-child {
@@ -144,11 +171,11 @@
 
         .rank {
             font-weight: bold;
-            color: #ffd700;
+            color: #1976d2;
         }
 
         .loading {
-            color: #ffd700;
+            color: #1976d2;
             font-style: italic;
         }
 
@@ -181,35 +208,43 @@
             <div class="control-group">
                 <label>Speed:</label>
                 <select id="gameSpeed">
+                    <option value="500">Turtle</option>
+                    <option value="400">Snail</option>
                     <option value="200">Slow</option>
                     <option value="150" selected>Normal</option>
                     <option value="100">Fast</option>
                     <option value="50">Lightning</option>
+                    <option value="20">Extreme</option>
+                    <option value="10">Insane</option>
+                    <option value="5">God Mode</option>
+                    <option value="1">Hell Mode</option>
                 </select>
             </div>
             
-            <button id="startBtn" onclick="startGame()">Start Game</button>
+            <button id="startBtn" onclick="startGame()">New Game</button>
             <button id="pauseBtn" onclick="pauseGame()" disabled>Pause</button>
-            <button id="resetBtn" onclick="resetGame()">Reset</button>
+            <button id="resetBtn" onclick="resetGame()">Play Again</button>
         </div>
 
-        <canvas id="gameCanvas" width="400" height="400"></canvas>
+        <canvas id="gameCanvas" width="600" height="600"></canvas>
 
         <div class="game-info">
             <div class="score-info">
                 <h3>Game Stats</h3>
                 <p>Score: <span id="currentScore">0</span></p>
                 <p>High Score: <span id="highScore">0</span></p>
+                <p>Level: <span id="currentLevel">1</span></p>
                 <p>Status: <span id="gameStatus">Ready to Start</span></p>
             </div>
             
             <div class="controls-info">
                 <h3>Controls</h3>
+                <p>🚀 <strong>SPACE</strong> - Start Moving</p>
                 <p>🔼 W or ↑ - Move Up</p>
                 <p>🔽 S or ↓ - Move Down</p>
                 <p>◀️ A or ← - Move Left</p>
                 <p>▶️ D or → - Move Right</p>
-                <p>Space - Pause/Resume</p>
+                <p>⏸️ Space - Pause/Resume</p>
             </div>
         </div>
 
@@ -226,7 +261,7 @@
         // Game variables
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
-        const gridSize = 20;
+        const gridSize = 30;
         const tileCount = canvas.width / gridSize;
 
         let gameState = {
@@ -238,7 +273,10 @@
             gameRunning: false,
             gamePaused: false,
             gameLoop: null,
-            speed: 150
+            speed: 150,
+            gameStarted: false,
+            baseSpeed: 150,
+            speedIncrement: 4
         };
 
         // Initialize game
@@ -255,24 +293,35 @@
                 return;
             }
 
-            gameState.speed = parseInt(document.getElementById('gameSpeed').value);
+            // Set base speed based on difficulty
+            const selectedSpeed = parseInt(document.getElementById('gameSpeed').value);
+            gameState.baseSpeed = selectedSpeed;
+            gameState.speed = selectedSpeed;
+            gameState.speedIncrement = Math.max(2, Math.floor(selectedSpeed * 0.02)); // 2% speed increase per level
+            gameState.lastSpeedIncrease = 0;
+            
             gameState.gameRunning = true;
             gameState.gamePaused = false;
-            gameState.snake = [{x: 10, y: 10}];
+            gameState.gameStarted = false;  // Will start when space is pressed
+            gameState.snake = [{x: Math.floor(tileCount/2), y: Math.floor(tileCount/2)}];
             gameState.dx = 0;
             gameState.dy = 0;
             gameState.score = 0;
             
             generateFood();
             updateUI();
+            drawGame();
             
+            // Start the game loop but snake won't move until space is pressed
             if (gameState.gameLoop) clearInterval(gameState.gameLoop);
             gameState.gameLoop = setInterval(gameLoop, gameState.speed);
             
             document.getElementById('startBtn').disabled = true;
             document.getElementById('pauseBtn').disabled = false;
-            document.getElementById('gameStatus').textContent = 'Playing';
+            document.getElementById('gameStatus').textContent = 'Press SPACE to start moving!';
             document.getElementById('currentScore').textContent = '0';
+            document.getElementById('currentLevel').textContent = '1';
+            document.getElementById('currentLevel').textContent = '1';
         }
 
         function pauseGame() {
@@ -295,10 +344,13 @@
             clearInterval(gameState.gameLoop);
             gameState.gameRunning = false;
             gameState.gamePaused = false;
-            gameState.snake = [{x: 10, y: 10}];
+            gameState.gameStarted = false;
+            gameState.snake = [{x: Math.floor(tileCount/2), y: Math.floor(tileCount/2)}];
             gameState.dx = 0;
             gameState.dy = 0;
             gameState.score = 0;
+            gameState.speed = gameState.baseSpeed || 150;
+            gameState.lastSpeedIncrease = 0;
             
             generateFood();
             drawGame();
@@ -314,19 +366,49 @@
         function gameLoop() {
             if (gameState.gamePaused) return;
             
-            moveSnake();
-            
-            if (checkCollision()) {
-                gameOver();
-                return;
-            }
-            
-            if (checkFoodCollision()) {
-                gameState.score += 10;
-                document.getElementById('currentScore').textContent = gameState.score;
-                generateFood();
-            } else {
-                gameState.snake.pop();
+            // Only move snake if game has started (space has been pressed)
+            if (gameState.gameStarted) {
+                moveSnake();
+                
+                if (checkCollision()) {
+                    gameOver();
+                    return;
+                }
+                
+                if (checkFoodCollision()) {
+                    gameState.score += 10;
+                    document.getElementById('currentScore').textContent = gameState.score;
+                    
+                    // Increase speed EVERY time snake eats food
+                    gameState.speed = Math.max(20, gameState.speed - gameState.speedIncrement);
+                    
+                    // Update the game loop with new faster speed
+                    clearInterval(gameState.gameLoop);
+                    gameState.gameLoop = setInterval(gameLoop, gameState.speed);
+                    
+                    // Show level every 50 points but speed increases every food
+                    const currentLevel = Math.floor(gameState.score / 50) + 1;
+                    if (gameState.score % 50 === 0) {
+                        document.getElementById('gameStatus').textContent = `Level ${currentLevel} Reached!`;
+                        setTimeout(() => {
+                            if (gameState.gameRunning && !gameState.gamePaused) {
+                                document.getElementById('gameStatus').textContent = 'Playing - Getting Faster!';
+                            }
+                        }, 1000);
+                    } else {
+                        // Brief speed increase notification
+                        document.getElementById('gameStatus').textContent = 'Speed Up!';
+                        setTimeout(() => {
+                            if (gameState.gameRunning && !gameState.gamePaused) {
+                                document.getElementById('gameStatus').textContent = 'Playing';
+                            }
+                        }, 300);
+                    }
+                    
+                    generateFood();
+                } else {
+                    gameState.snake.pop();
+                }
             }
             
             drawGame();
@@ -376,12 +458,12 @@
         }
 
         function drawGame() {
-            // Clear canvas
-            ctx.fillStyle = '#1a1a2e';
+            // Clear canvas with light background
+            ctx.fillStyle = '#f5f5f5';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             
             // Draw grid
-            ctx.strokeStyle = '#16213e';
+            ctx.strokeStyle = '#e0e0e0';
             ctx.lineWidth = 1;
             for (let i = 0; i <= tileCount; i++) {
                 ctx.beginPath();
@@ -396,20 +478,30 @@
             }
             
             // Draw snake
-            ctx.fillStyle = '#0f3460';
             gameState.snake.forEach((segment, index) => {
                 if (index === 0) {
-                    // Snake head
-                    ctx.fillStyle = '#e94560';
+                    // Snake head - brighter color
+                    ctx.fillStyle = '#1976d2';
                 } else {
-                    ctx.fillStyle = '#f39c12';
+                    // Snake body
+                    ctx.fillStyle = '#42a5f5';
                 }
-                ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize - 2, gridSize - 2);
+                ctx.fillRect(segment.x * gridSize + 2, segment.y * gridSize + 2, gridSize - 4, gridSize - 4);
+                
+                // Add some shine to snake segments
+                if (index === 0) {
+                    ctx.fillStyle = '#bbdefb';
+                    ctx.fillRect(segment.x * gridSize + 4, segment.y * gridSize + 4, gridSize - 8, gridSize - 8);
+                }
             });
             
-            // Draw food
-            ctx.fillStyle = '#27ae60';
-            ctx.fillRect(gameState.food.x * gridSize, gameState.food.y * gridSize, gridSize - 2, gridSize - 2);
+            // Draw food with glow effect
+            ctx.fillStyle = '#4caf50';
+            ctx.fillRect(gameState.food.x * gridSize + 2, gameState.food.y * gridSize + 2, gridSize - 4, gridSize - 4);
+            
+            // Add glow to food
+            ctx.fillStyle = '#c8e6c9';
+            ctx.fillRect(gameState.food.x * gridSize + 6, gameState.food.y * gridSize + 6, gridSize - 12, gridSize - 12);
         }
 
         function gameOver() {
@@ -441,6 +533,8 @@
 
         function updateUI() {
             document.getElementById('currentScore').textContent = gameState.score;
+            const currentLevel = Math.floor(gameState.score / 50) + 1;
+            document.getElementById('currentLevel').textContent = currentLevel;
         }
 
         function loadHighScore() {
@@ -533,49 +627,76 @@
             leaderboardList.innerHTML = html;
         }
 
-        // Keyboard controls
+        // Keyboard controls with space to start
         document.addEventListener('keydown', (e) => {
-            if (!gameState.gameRunning || gameState.gamePaused) {
+            if (!gameState.gameRunning) {
+                return;
+            }
+            
+            if (gameState.gamePaused) {
                 if (e.code === 'Space') {
                     e.preventDefault();
-                    if (gameState.gameRunning) pauseGame();
+                    pauseGame();
                 }
                 return;
             }
             
             e.preventDefault();
             
+            // Space to start the game or pause/resume
+            if (e.code === 'Space') {
+                if (!gameState.gameStarted) {
+                    // Start the game
+                    gameState.gameStarted = true;
+                    gameState.dx = 0;
+                    gameState.dy = -1; // Start moving up
+                    document.getElementById('gameStatus').textContent = 'Playing';
+                } else {
+                    // Pause/resume
+                    pauseGame();
+                }
+                return;
+            }
+            
+            // Don't process direction keys until game has started
+            if (!gameState.gameStarted) return;
+            
+            // Get current direction
+            const currentDx = gameState.dx;
+            const currentDy = gameState.dy;
+            
             switch(e.code) {
                 case 'ArrowUp':
                 case 'KeyW':
-                    if (gameState.dy !== 1) {
+                    // Only allow if not currently moving down
+                    if (currentDy !== 1) {
                         gameState.dx = 0;
                         gameState.dy = -1;
                     }
                     break;
                 case 'ArrowDown':
                 case 'KeyS':
-                    if (gameState.dy !== -1) {
+                    // Only allow if not currently moving up
+                    if (currentDy !== -1) {
                         gameState.dx = 0;
                         gameState.dy = 1;
                     }
                     break;
                 case 'ArrowLeft':
                 case 'KeyA':
-                    if (gameState.dx !== 1) {
+                    // Only allow if not currently moving right
+                    if (currentDx !== 1) {
                         gameState.dx = -1;
                         gameState.dy = 0;
                     }
                     break;
                 case 'ArrowRight':
                 case 'KeyD':
-                    if (gameState.dx !== -1) {
+                    // Only allow if not currently moving left
+                    if (currentDx !== -1) {
                         gameState.dx = 1;
                         gameState.dy = 0;
                     }
-                    break;
-                case 'Space':
-                    pauseGame();
                     break;
             }
         });
